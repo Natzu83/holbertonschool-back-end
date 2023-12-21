@@ -29,3 +29,17 @@ if __name__ == "__main__":
         for task in TODOS
         if task['userId'] == EMPLOYEE_ID
     )
+    TOTAL_NUMBER_OF_TASKS = len(EMPLOYEE_TODOS)
+
+    DONE_TASKS_TITLES = tuple(
+        task['title']
+        for task in EMPLOYEE_TODOS
+        if task['completed'] is True
+    )
+    NUMBER_OF_DONE_TASKS = len(DONE_TASKS_TITLES)
+
+    print(f"Employee {EMPLOYEE_NAME} is done with\
+ tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+
+    for task_title in DONE_TASKS_TITLES:
+        print(f"\t {task_title}")
